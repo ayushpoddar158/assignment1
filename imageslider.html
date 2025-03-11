@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+<link rel="stylesheet" href="css/imageslider.css">
+</head>
+<body>
+    <div class="slider">
+        <img id="sliderImage" src="" alt="Image Slider">
+    </div>
+    <div class="buttons">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+        const images = [
+            'assert/service-1.jpg',
+            'assert/services-2.jpg',
+            'assert/services-3.jpg'
+        ];
+        let currentIndex = 0;
+
+        function updateImage() {
+            document.getElementById("sliderImage").src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        updateImage();
+    </script>
+</body>
+</html>
